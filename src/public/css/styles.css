@@ -1,91 +1,79 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    flex-direction: column;
+:root {
+  --primario: #f9feff;
+  --principalClaro: #6fbbc2c2;
+  --principal: #7ab8bf;
+  --secundario: #025159;
+  --secundarioOscuro: #1c6069;
+  --backgroud: #eefdff;
+  --divs: #a68c58;
+  --dorado: #a68758;
+  --doradoOscuro: #705730;
+  --blanco: #ffffff;
+  --negro: #000;
+
+  --fuentePrincipal: "Raleway", sans-serif;
 }
 
-.login-container, .register-container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/** Globales **/
+body {
+  background-color: var(--backgroud);
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+p,
+.p {
+  font-size: 2rem;
+  font-family: var(--fuentePrincipal);
+  /* color: var(--blanco); */
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+.mainContenedor {
+  max-width: 120rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+  color: var(--secundario);
+  font-family: var(--fuentePrincipal);
 }
 
 h1 {
-    text-align: center;
+  font-size: 4rem;
 }
 
-.form-group {
-    margin-bottom: 15px;
-    width: 100%;
+h2 {
+  font-size: 3.2rem;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
+h3 {
+  font-size: 2.4rem;
 }
-
-input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-.social-login {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-}
-
-.social-login button#localLogin {
-    background-color: green;
-    margin-bottom: 10px;
-}
-
-.social-login button#googleLogin {
-    background-color: #db4437; /* Color de Google */
-    margin-bottom: 10px;
-}
-
-.social-login button#facebookLogin {
-    background-color: #4267b2; /* Color de Facebook */
-}
-
-#message, #registerMessage {
-    margin-top: 15px;
-    text-align: center;
-    color: red;
-}
-
-.register-link, .login-link {
-    margin-top: 15px;
-    text-align: center;
-}
-
-.index-buttons {
-    margin-bottom: 10px;
+button,
+.pointer {
+  cursor: pointer;
 }

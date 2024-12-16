@@ -1,28 +1,11 @@
 import bcrypt from "bcrypt";
-import { saltRounds } from "../config/config.js";
 
-import { fileURLToPath } from "url";
-import path from "path";
+const createHash = (password) =>
+  bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Direccion de la carpeta src del proyecto
-export const srcPath = path.resolve(__dirname, "..");
-
-export const hashPassword = (password) => {
-	try {
-		if (!password) {
-			throw new Error("No se ingreso contraseña.");
-		}
-		const salt = bcrypt.genSaltSync(saltRounds);
-		const hashedPassword = bcrypt.hashSync(password, salt);
-		return hashedPassword;
-	} catch (error) {
-		console.log("Error al intentar hashear la contraseña:", error);
-	}
+const isValidPassword = (password, user) => {
+  return bcrypt.compareSync(password, user.password);
 };
 
-export const comparePasswords = (password, userPassword) => {
-	return bcrypt.compareSync(password, userPassword);
-};
+// compareSync compara los passwords, retorna true o false según corresponda
+export { createHash, isValidPassword };

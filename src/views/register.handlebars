@@ -1,51 +1,28 @@
-<head>
-    <link rel="stylesheet" href="/css/styles.css">
-    <script defer src="./js/registerScript.js"></script>
-</head>
-<body>
-<div class="register-container">
-    <h1>Registrarse</h1>
-    <form id="registerForm" >
-        <!-- Nombre -->
-        <div class="form-group">
-            <label for="firstName">Nombre:</label>
-            <input type="text" id="firstName" name="first_name" required />
-        </div>
+{{! REGISTER }}
 
-        <!-- Apellido -->
-        <div class="form-group">
-            <label for="lastName">Apellido:</label>
-            <input type="text" id="lastName" name="last_name" required />
-        </div>
+<h1>Registro de nuevo usuario</h1>
 
-        <!-- Edad -->
-        <div class="form-group">
-            <label for="dob">Fecha de Nacimiento:</label>
-            <input type="date" id="dateOfBirth" name="dob" required />
-        </div>
+<form action="/api/sessions/register" method="post">
+	<label for="first_name">Nombre: </label>
+	<input type="text" name="first_name" />
+	<br /><br />
+	<label for="last_name">Apellido: </label>
+	<input type="text" name="last_name" />
+	<br /><br />
+	<label for="userName">Nombre de uruario: </label>
+	<input type="text" name="userName" />
+	<br /><br />
+	<label for="email">Email: </label>
+	<input type="email" name="email" />
+	<br /><br />
+	<label for="birth">Fecha de Nacimiento: </label>
+	<input type="date" name="birth" />
+	<br /><br />
+	<label for="password">Contraseña: </label>
+	<input type="password" name="password" />
+	<br /><br />
 
-        <!-- Correo Electrónico -->
-        <div class="form-group">
-            <label for="regEmail">Correo Electrónico:</label>
-            <input type="email" id="regEmail" name="email" required />
-        </div>
+	<button type="submit">Registrar</button>
 
-        <!-- Contraseña -->
-        <div class="form-group">
-            <label for="regPassword">Contraseña:</label>
-            <input type="password" id="regPassword" name="password" required />
-        </div>
-
-        <!-- Botón de Registro -->
-        <button type="submit">Registrarse</button>
-    </form>
-
-    <!-- Enlace para iniciar sesión -->
-    <div class="login-link">
-        <p>¿Ya tienes cuenta? <a href="/login" id="showLoginForm">Inicia sesión aquí</a></p>
-    </div>
-
-    <!-- Mensaje de registro -->
-    <div id="registerMessage"></div>
-</div>
-</body>
+</form>
+<a href="/login">Ya teno un usuario.</a>

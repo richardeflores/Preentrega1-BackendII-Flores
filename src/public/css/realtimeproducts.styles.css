@@ -1,0 +1,17 @@
+.container {
+	display: flex;
+	flex-direction: row;
+	gap: 3rem;
+	text-align: center;
+	padding: 2rem;
+	max-width: 90%;
+	flex-wrap: wrap;
+}
+
+.card {
+	background-color: var(--gris-cards);
+	border-radius: 5%;
+	padding: 2rem 1rem;
+	min-width: 40rem;
+	margin: auto;
+}

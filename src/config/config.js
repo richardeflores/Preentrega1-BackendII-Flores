@@ -1,13 +1,14 @@
-export const PORT = process.env.PORT || 3000;
+import dotenv from "dotenv";
+import program from "../utils/commander.js";
 
-export const MONGO_URL = process.env.MONGO_URL || "mongodb://localhost:27017/ProyectoFinal-BackEnd1-CoderHouse";
+const { mode } = program.opts();
 
-export const dbConnectionType = process.env.MONGO_URL ? "Atlas" : "Local"
+dotenv.config({
+  path: mode === "prod" ? "./.env.prod" : "./.env.dev",
+});
 
-export const SECRET_KEY = process.env.SECRET_KEY || 123;
+const configObject = {
+  mongo_url: process.env.MONGO_URL,
+};
 
-export const saltRounds = 10;
-
-// Para passport-google-oauth20
-export const CLIENT_ID_GOOGLE = process.env.CLIENT_ID_GOOGLE;
-export const CLIENT_SECRET_GOOGLE = process.env.CLIENT_SECRET_GOOGLE;
+export default configObject;

@@ -1,28 +1,79 @@
-<head>
-	<script defer src="/js/script.js"></script>
-	<link rel="stylesheet" href="/css/styles.css" />
-</head>
-<body>
-	<div class="index-container">
-		<h1>Preentrega1 Backend II - CoderHouse</h1>
+<script defer src="/js/products.js"></script>
+<script defer type="module" src="/js/main.js"></script>
 
-		<!-- Link a la página de Login -->
-		<div class="index-buttons">
-			<a href="/login">
-				<button>Ingresar</button>
+<header class="header">
+	<a href="/products" class="a_header__logo">
+		<img class="header__logo" src="img/logo.jpg" alt="Logotipo" />
+	</a>
+	<div class="imgCarro" id="imgCarro" data-cart-id="{{cartID}}">
+		<img src="img/shopbag.svg" class="pointer carrito" alt="carrito" />
+	</div>
+
+</header>
+
+<nav class="navegacion">
+	<p>Bienvenido! {{userName}}, {{email}}</p>
+	<form action="/api/sessions/logout" method="post">
+		<button type="submit">Log Out</button>
+	</form>
+
+</nav>
+
+<main class="mainContenedor">
+	<br />
+
+	<div class="contenedor">
+
+		{{#each products}}
+			<div class="producto">
+				<div class="div--producto__imagen">
+					<img
+						class="producto__imagen"
+						src={{this.img}}
+						alt="Imagen de {{this.title}}"
+					/></div>
+				<div class="producto__informacion">
+					<h2 class="producto__nombre">{{this.title}}</h2>
+					<p class="producto__precio-r"><b>{{this.price}}</b></p>
+					<p class="producto__precio-r">stock: {{this.stock}}</p>
+				</div>
+				<button
+					class="btn-addProductToCart button"
+					data-product-id="{{this._id}}"
+				>Agregar a carrito</button>
+
+			</div>
+		{{/each}}
+	</div>
+	<div class="paginate">
+
+		{{#if hasPrevPage}}
+			<a href="/products?page={{prevPage}}">Anterior
 			</a>
-		</div>
+		{{/if}}
+		{{#if hasPrevPage}}
+			{{#if hasNextPage}}
+				<p>-</p>
+			{{/if}}
+		{{/if}}
 
-		<!-- Link a la página de Usuario actual -->
-		<div class="index-buttons">
-			<a href="/api/sessions/current">
-				<button>Usuario</button>
+		{{#if hasNextPage}}
+			<a href="/products?page={{nextPage}}">Siguiente
 			</a>
-		</div>
+		{{/if}}
+		<p>Pagina {{currentPage}} de {{totalPages}}</p>
+	</div>
+</main>
 
-		<!-- Formulario para realizar logout con el método DELETE -->
-		<div class="index-buttons">
-			<button id="logoutButton">Cerrar sesion</button>
+<footer class="footer">
+	<div class="grid-footer">
+		<div class="iconos">
+			<a href="#"><i class="fa-brands fa-instagram icon"></i></a>
+			<a href="#"><i class="fa-brands fa-whatsapp icon"></i></a>
+		</div>
+		<div class="ubicaciones">
+			<p class="texto-ubicaciones">Santiago - Chile</p>
+			<p class="texto-ubicaciones">Hacemos envios</p>
 		</div>
 	</div>
-</body>
+</footer>
