@@ -2,47 +2,47 @@
 <script defer type="module" src="/js/cart.js"></script>
 
 <header class="header">
-  <a href="/products" class="a_header__logo">
-    <img class="header__logo" src="/img/logo.jpg" alt="Logotipo" />
-  </a>
+	<a href="/products" class="a_header__logo">
+		<img class="header__logo" src="/img/favicon.svg" alt="Logotipo" />
+	</a>
 
 </header>
 
 <br /><br />
 
 <div class="contenedorCheckOut">
-  <button class="button" key="" data-cart-id="{{cartID}}" id="btn-vaciar">
-    Vaciar carrito
-  </button>
-  {{#each products}}
-    <div key="{{this.product._id}}" class="listado">
-      <img
-        class="producto__imagen"
-        src="{{this.product.img}}"
-        alt="foto de {{this.product.title}}"
-        height="200"
-        width="200px"
-      />
-      <div class="checkout--info-btn">
-        <div class="checkout--listado--info">
-          <h3>{{this.product.title}}</h3>
-          <h3>${{this.price}}</h3>
-          <p>Cantidad: {{this.quantity}}</p>
-        </div>
-        <a class="boton-eliminar">
-          ⛔️
-        </a>
-      </div>
-    </div>
-  {{/each}}
+	<button class="button" key="" data-cart-id="{{cartID}}" id="btn-vaciar">
+		Vaciar carrito
+	</button>
+	{{#each products}}
+		<div key="{{this.product._id}}" class="listado">
+			<img
+				class="producto__imagen"
+				src="{{this.product.img}}"
+				alt="foto de {{this.product.title}}"
+				height="200"
+				width="200px"
+			/>
+			<div class="checkout--info-btn">
+				<div class="checkout--listado--info">
+					<h3>{{this.product.title}}</h3>
+					<h3>${{this.price}}</h3>
+					<p>Cantidad: {{this.quantity}}</p>
+				</div>
+				<a class="boton-eliminar">
+					⛔️
+				</a>
+			</div>
+		</div>
+	{{/each}}
 
 </div>
 <div class="total--compra">
-  <p>Total: ${{total}}</p>
+	<p>Total: ${{total}}</p>
 </div>
 
 <form class="form--compra">
-  <button type="submit" id="btn-purchase" class="button">
-    Finalizar compra
-  </button>
+	<button type="submit" id="btn-purchase" class="button">
+		Finalizar compra
+	</button>
 </form>
