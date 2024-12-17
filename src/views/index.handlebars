@@ -1,20 +1,49 @@
 <script defer src="/js/products.js"></script>
 <script defer type="module" src="/js/main.js"></script>
 
-<header class="header">
-	<a href="/products" class="a_header__logo">
-		<img class="header__logo" src="img/favicon.svg" alt="Logotipo" />
-	</a>
-	<div class="imgCarro" id="imgCarro" data-cart-id="{{cartID}}">
-		<img src="img/shopbag.svg" class="pointer carrito" alt="carrito" />
-	</div>
+<nav
+	class="navbar navbar-expand-lg bg-body-tertiary bg-primary"
+	data-bs-theme="dark"
+>
+	<div class="container-fluid">
+		<a class="navbar-brand" href="/products"><img
+				class="header__logo"
+				src="img/favicon.svg"
+				alt="Logotipo"
+			/></a>
+		<button
+			class="navbar-toggler"
+			type="button"
+			data-bs-toggle="collapse"
+			data-bs-target="#navbarNav"
+			aria-controls="navbarNav"
+			aria-expanded="false"
+			aria-label="Toggle navigation"
+		>
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a
+						class="nav-link active"
+						aria-current="page"
+						href="/products"
+					>Home</a>
+				</li>
+			</ul>
+			<div class="imgCarro" id="imgCarro" data-cart-id="{{cartID}}">
+				<img src="img/shopbag.svg" class="pointer carrito" alt="carrito" />
+			</div>
 
-</header>
+		</div>
+	</div>
+</nav>
 
 <nav class="navegacion">
 	<p>Bienvenido! {{userName}}, {{email}}</p>
 	<form action="/api/sessions/logout" method="post">
-		<button type="submit">Log Out</button>
+		<button class="btn btn-primary" type="submit">Log Out</button>
 	</form>
 
 </nav>
@@ -22,27 +51,27 @@
 <main class="mainContenedor">
 	<br />
 
-	<div class="contenedor">
+	<div class="container d-flex">
 
 		{{#each products}}
-			<div class="producto">
-				<div class="div--producto__imagen">
-					<img
-						class="producto__imagen"
-						src={{this.img}}
-						alt="Imagen de {{this.title}}"
-					/></div>
-				<div class="producto__informacion">
-					<h2 class="producto__nombre">{{this.title}}</h2>
-					<p class="producto__precio-r"><b>{{this.price}}</b></p>
-					<p class="producto__precio-r">stock: {{this.stock}}</p>
-				</div>
-				<button
-					class="btn-addProductToCart button"
-					data-product-id="{{this._id}}"
-				>Agregar a carrito</button>
 
+			<div class="card" style="width: 18rem;">
+				<img src={{this.img}} class="card-img-top" alt="..." />
+				<div class="card-body">
+					<h5 class="card-title">{{this.title}}</h5>
+					<p class="card-text">Some quick example text to build on the card
+						title and make up the bulk of the card's content.</p>
+				</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">Precio: {{this.price}}</li>
+					<li class="list-group-item">Stock: {{this.stock}}</li>
+				</ul>
+				<div class="card-body">
+					<button class="btn btn-primary" data-product-id="{{this._id}}">Agregar
+						a carrito</button>
+				</div>
 			</div>
+
 		{{/each}}
 	</div>
 	<div class="paginate">

@@ -1,3 +1,28 @@
 .container-login {
 	max-width: 450px;
 }
+
+img.header__logo {
+	width: 80px;
+}
+
+img.pointer.carrito {
+	width: 50px;
+}
+
+footer.footer {
+	text-align: center;
+}
+
+.card {
+	margin: 10px;
+}
+
+@media (min-width: 992px) {
+	.navbar-expand-lg .navbar-collapse {
+		display: flex !important
+;
+		flex-basis: auto;
+		justify-content: space-between;
+	}
+}
