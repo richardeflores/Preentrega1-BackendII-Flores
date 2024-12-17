@@ -18,6 +18,15 @@ footer.footer {
 	margin: 10px;
 }
 
+.listado {
+	display: flex;
+	border-style: double;
+}
+.checkout--info-btn {
+	width: 100%;
+	margin-left: 20px;
+}
+
 @media (min-width: 992px) {
 	.navbar-expand-lg .navbar-collapse {
 		display: flex !important

@@ -53,9 +53,7 @@ const updateProduct = (id, stock) => {
 	socket.emit("updateProduct", { id, stock });
 };
 
-//////////////////////////////
-//////// SWEAT ALERT /////////
-//////////////////////////////
+//Sweet alert
 
 const addProductWthBtn = async () => {
 	const { value: formValues } = await Swal.fire({

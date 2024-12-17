@@ -10,12 +10,17 @@
 
 <br /><br />
 
-<div class="contenedorCheckOut">
-	<button class="button" key="" data-cart-id="{{cartID}}" id="btn-vaciar">
+<div class="container contenedorCheckOut">
+	<button
+		class="button btn btn-danger"
+		key=""
+		data-cart-id="{{cartID}}"
+		id="btn-vaciar"
+	>
 		Vaciar carrito
 	</button>
 	{{#each products}}
-		<div key="{{this.product._id}}" class="listado">
+		<div key="{{this.product._id}}" class="listado table">
 			<img
 				class="producto__imagen"
 				src="{{this.product.img}}"
@@ -29,7 +34,7 @@
 					<h3>${{this.price}}</h3>
 					<p>Cantidad: {{this.quantity}}</p>
 				</div>
-				<a class="boton-eliminar">
+				<a class="boton-eliminar btn btn-outline-danger">
 					⛔️
 				</a>
 			</div>
@@ -37,12 +42,12 @@
 	{{/each}}
 
 </div>
-<div class="total--compra">
+<div class="container total--compra">
 	<p>Total: ${{total}}</p>
 </div>
 
 <form class="form--compra">
-	<button type="submit" id="btn-purchase" class="button">
+	<button type="submit" id="btn-purchase" class="button btn btn-success">
 		Finalizar compra
 	</button>
 </form>
