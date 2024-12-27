@@ -5,6 +5,7 @@ import { engine } from "express-handlebars";
 import { Server } from "socket.io";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import "dotenv/config";
 
 // Database
 import "./database.js";
@@ -14,6 +15,7 @@ import cartsRouter from "./routes/carts.router.js";
 import viewsRouter from "./routes/views.router.js";
 import usersRouter from "./routes/users.router.js";
 import ticketsRouter from "./routes/tickets.router.js";
+import mocksRouter from "./routes/mocks.router.js";
 
 // Passport config
 import passport from "passport";
@@ -94,6 +96,10 @@ app.use("/api/sessions", usersRouter);
 
 // llama a la api tickets para usar sus funcionalidades
 app.use("/api/tickets", ticketsRouter);
+
+app.use("/api/users", usersRouter);
+
+app.use("/api/mocks", mocksRouter);
 
 // VINCULA EL SERVIDOR
 const httpServer = app.listen(PORT, () => {
