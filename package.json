@@ -4,7 +4,8 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "node --watch src/app.js --mode dev",
-		"prod": "node --watch src/app.js --mode prod"
+		"prod": "node --watch src/app.js --mode prod",
+		"start": "node src/app.js"
 	},
 	"author": "Richard Flores Rivero",
 	"license": "ISC",
