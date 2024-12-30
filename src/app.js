@@ -24,9 +24,18 @@ import productService from "./services/product.service.js";
 import productController from "./controllers/product.controller.js";
 import compression from "express-compression";
 
+//Documentation
+import swaggerUi from "swagger-ui-express";
+import swaggerJSDoc from "swagger-jsdoc";
+import { info } from "./docs/info.js";
+
 /* Configuracion de puerto */
 // declaro app como express para que sea mas facil y mas visual
 const app = express();
+
+//configurando swagger
+const specs = swaggerJSDoc(info);
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(specs));
 
 // declaro en que puerto se va a correr, facilitando y optimizando
 const PORT = process.env.PORT || 8080;

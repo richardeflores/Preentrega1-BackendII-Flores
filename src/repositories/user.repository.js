@@ -14,7 +14,7 @@ class UserRepository {
 
 	async createUser(user) {
 		try {
-			return await userDao.create(user);
+			return await userDao.save(user);
 		} catch (error) {
 			console.error("Error al crear el usuario:", error);
 			throw error;

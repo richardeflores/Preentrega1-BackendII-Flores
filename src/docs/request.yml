@@ -1,0 +1,47 @@
+components:
+  schemas:
+    BodyUsers:
+      type: object
+      required:
+        - first_name
+        - last_name
+        - userName
+        - email
+        - birth
+        - password
+        - role
+        - cartID
+      properties:
+        first_name:
+          type: string
+          description: "The first name of the user"
+          example: "John"
+        last_name:
+          type: string
+          description: "The last name of the user"
+          example: "Doe"
+        userName:
+          type: string
+          description: "The user name of the user"
+          example: "johndoe"
+        email:
+          type: string
+          description: "The email of the user"
+          example: "johndoe@example.com"
+        birth:
+          type: string
+          format: date
+          description: "The birth date of the user"
+          example: "1990-01-01"
+        password:
+          type: string
+          description: "The password of the user"
+          example: "password123"
+        role:
+          type: string
+          description: "The role of the user"
+          example: "user"
+        cartID:
+          type: string
+          description: "The cart ID of the user"
+          example: "123456"

@@ -1,0 +1,132 @@
+components:
+  schemas:
+    CreacionUsuario:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID del usuario
+        first_name:
+          type: string
+          description: Nombre del usuario
+        last_name:
+          type: string
+          description: Apellido del usuario
+        userName:
+          type: string
+          description: Nombre de usuario
+        email:
+          type: string
+          description: Correo electrónico del usuario
+        birth:
+          type: string
+          format: date
+          description: Fecha de nacimiento del usuario
+        password:
+          type: string
+          description: Contraseña del usuario
+        role:
+          type: string
+          description: Rol del usuario
+        cartID:
+          type: string
+          description: ID del carrito del usuario
+      example:
+        id: "1"
+        first_name: Juan
+        last_name: Pérez
+        userName: juanperez
+        email: juanperez@example.com
+        birth: 1990-01-01
+        password: "123456"
+        role: user
+        cartID: "123456"
+
+    RespGetAllUsers:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+            description: ID del usuario
+          first_name:
+            type: string
+            description: Nombre del usuario
+          last_name:
+            type: string
+            description: Apellido del usuario
+          userName:
+            type: string
+            description: Nombre de usuario
+          email:
+            type: string
+            description: Correo electrónico del usuario
+          birth:
+            type: string
+            format: date
+            description: Fecha de nacimiento del usuario
+          password:
+            type: string
+            description: Contraseña del usuario
+          role:
+            type: string
+            description: Rol del usuario
+          cartID:
+            type: string
+            description: ID del carrito del usuario
+      example:
+        - id: "1"
+          first_name: Juan
+          last_name: Pérez
+          userName: juanperez
+          email: juanperez@example.com
+          birth: 1990-01-01
+          password: "123456"
+          role: user
+          cartID: "123456"
+
+    RespErrorGetUsers:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Mensaje de error cuando no se encuentran los usuarios
+      example:
+        message: "Error al obtener los usuarios"
+
+    RespErrorGetUserByUsername:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Mensaje de error cuando no se encuentra el nombre de usuario
+      example:
+        message: "Error al obtener el usuario por userName"
+
+    RespErrorCreateUser:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Mensaje de error al intentar crear un usuario
+      example:
+        message: "Error al crear el usuario"
+
+    RespErrorGetUserByEmail:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Mensaje de error al buscar por email
+      example:
+        message: "Error al obtener el usuario por email"
+
+    RespErrorServidor:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Mensaje de error por fallo del servidor
+      example:
+        message: "Error del Servidor"
