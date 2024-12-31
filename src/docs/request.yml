@@ -45,3 +45,8 @@ components:
           type: string
           description: "The cart ID of the user"
           example: "123456"
+  SecuritySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
