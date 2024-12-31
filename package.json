@@ -5,7 +5,8 @@
 	"scripts": {
 		"dev": "node --watch src/app.js --mode dev",
 		"prod": "node --watch src/app.js --mode prod",
-		"start": "node src/app.js"
+		"start": "node src/app.js",
+		"test": "mocha src/test/users.test.js"
 	},
 	"author": "Richard Flores Rivero",
 	"license": "ISC",
@@ -37,5 +38,9 @@
 		"swagger-jsdoc": "^6.2.8",
 		"swagger-ui-express": "^5.0.1"
 	},
-	"type": "module"
+	"type": "module",
+	"devDependencies": {
+		"chai": "^5.1.2",
+		"mocha": "^11.0.1"
+	}
 }
