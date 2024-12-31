@@ -4,13 +4,16 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "node --watch src/app.js --mode dev",
-		"prod": "node --watch src/app.js --mode prod"
+		"prod": "node --watch src/app.js --mode prod",
+		"start": "node src/app.js",
+		"test": "mocha src/test/users.test.js"
 	},
 	"author": "Richard Flores Rivero",
 	"license": "ISC",
 	"homepage": " ",
 	"description": "",
 	"dependencies": {
+		"@faker-js/faker": "^9.3.0",
 		"bcrypt": "^5.1.1",
 		"commander": "^12.1.0",
 		"connect-mongo": "^5.1.0",
@@ -22,8 +25,8 @@
 		"express-handlebars": "^8.0.1",
 		"jsonwebtoken": "^9.0.2",
 		"mongodb": "^6.8.0",
-		"mongoose-paginate-v2": "^1.8.3",
 		"mongoose": "^8.7.0",
+		"mongoose-paginate-v2": "^1.8.3",
 		"nodemailer": "^6.9.15",
 		"nodemon": "^3.1.7",
 		"passport": "^0.7.0",
@@ -31,7 +34,13 @@
 		"passport-google-oauth20": "^2.0.0",
 		"passport-jwt": "^4.0.1",
 		"passport-local": "^1.0.0",
-		"socket.io": "^4.7.5"
+		"socket.io": "^4.7.5",
+		"swagger-jsdoc": "^6.2.8",
+		"swagger-ui-express": "^5.0.1"
 	},
-	"type": "module"
+	"type": "module",
+	"devDependencies": {
+		"chai": "^5.1.2",
+		"mocha": "^11.0.1"
+	}
 }

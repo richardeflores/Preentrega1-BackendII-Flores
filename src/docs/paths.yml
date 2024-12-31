@@ -1,0 +1,124 @@
+paths:
+  /api/users/register:
+    post:
+      tags:
+        - Users
+      summary: Registro de un nuevo usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BodyUsers"
+      responses:
+        200:
+          description: Usuario registrado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreacionUsuario"
+        400:
+          description: Error en la validación de datos del usuario
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RespErrorCreateUser"
+        500:
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RespErrorServidor"
+
+  /api/mocks/users:
+    get:
+      tags:
+        - Users
+      summary: Obtener la lista de todos los usuarios
+      responses:
+        200:
+          description: Usuarios obtenidos satisfactoriamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RespGetAllUsers"
+        400:
+          description: Error al solicitar el listado de usuarios
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RespErrorGetUsers"
+        500:
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RespErrorServidor"
+
+  /api/mocks/mockingusers:
+    get:
+      tags:
+        - Mocking Users
+      summary: Obtener usuarios mockeados
+      responses:
+        200:
+          description: Listado de usuarios mockeados
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RespGetAllUsers"
+        400:
+          description: Error al solicitar el listado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RespErrorGetUsers"
+        500:
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RespErrorServidor"
+
+  /api/mocks/generateData:
+    post:
+      tags:
+        - Generate Mocking Users
+      summary: Generar usuarios mockeados
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                users:
+                  type: integer
+                  description: Cantidad de usuarios a generar
+                  example: 10
+                carts:
+                  type: integer
+                  description: Cantidad de carritos a generar
+                  example: 10
+              required:
+                - users
+                - carts
+      responses:
+        200:
+          description: Usuarios generados correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreacionUsuario"
+        400:
+          description: Error al generar usuarios
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RespErrorCreateUser"
+        500:
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RespErrorServidor"

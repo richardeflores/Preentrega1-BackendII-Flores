@@ -2,7 +2,7 @@
 import jwt from "jsonwebtoken";
 //internos
 import UserDTO from "../dto/user.dto.js";
-import userService from "../services/user.service.js";
+import UserService from "../services/user.service.js";
 import cartController from "./cart.controller.js";
 
 const normalice = (word) => {
@@ -23,7 +23,7 @@ class UserController {
 					.status(404)
 					.json({ message: "Error en la creacion del nuevo carrito" });
 
-			const nuevoUsuario = await userService.registerUser({
+			const nuevoUsuario = await UserService.registerUser({
 				first_name: normalice(first_name),
 				last_name: normalice(last_name),
 				userName: userName.toLowerCase().trim(),
@@ -64,7 +64,7 @@ class UserController {
 
 		try {
 			const userNameFixed = userName.toLowerCase().trim();
-			const user = await userService.loginUser(userNameFixed, password);
+			const user = await UserService.loginUser(userNameFixed, password);
 
 			if (!user) {
 				return res
@@ -108,5 +108,24 @@ class UserController {
 		res.status(200).json({ message: "Success" });
 	}
 }
+
+export const createUser = async (req, res, next) => {
+	try {
+		const { cant } = req.query;
+		const response = await UserService.createUsersMock(cant);
+		res.status(200).json(response);
+	} catch (error) {
+		next(error);
+	}
+};
+
+export const getUsers = async (req, res, next) => {
+	try {
+		const response = await UserService.getUsers();
+		res.status(200).json(response);
+	} catch (error) {
+		next(error);
+	}
+};
 
 export default UserController;

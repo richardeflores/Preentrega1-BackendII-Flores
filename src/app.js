@@ -5,6 +5,7 @@ import { engine } from "express-handlebars";
 import { Server } from "socket.io";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import "dotenv/config";
 
 // Database
 import "./database.js";
@@ -14,6 +15,7 @@ import cartsRouter from "./routes/carts.router.js";
 import viewsRouter from "./routes/views.router.js";
 import usersRouter from "./routes/users.router.js";
 import ticketsRouter from "./routes/tickets.router.js";
+import mocksRouter from "./routes/mocks.router.js";
 
 // Passport config
 import passport from "passport";
@@ -22,9 +24,18 @@ import productService from "./services/product.service.js";
 import productController from "./controllers/product.controller.js";
 import compression from "express-compression";
 
+//Documentation
+import swaggerUi from "swagger-ui-express";
+import swaggerJSDoc from "swagger-jsdoc";
+import { info } from "./docs/info.js";
+
 /* Configuracion de puerto */
 // declaro app como express para que sea mas facil y mas visual
 const app = express();
+
+//configurando swagger
+const specs = swaggerJSDoc(info);
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(specs));
 
 // declaro en que puerto se va a correr, facilitando y optimizando
 const PORT = process.env.PORT || 8080;
@@ -94,6 +105,10 @@ app.use("/api/sessions", usersRouter);
 
 // llama a la api tickets para usar sus funcionalidades
 app.use("/api/tickets", ticketsRouter);
+
+app.use("/api/users", usersRouter);
+
+app.use("/api/mocks", mocksRouter);
 
 // VINCULA EL SERVIDOR
 const httpServer = app.listen(PORT, () => {
